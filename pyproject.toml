@@ -1,0 +1,111 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-flex"
+version = "26.1.8"
+description = "A flexible query language for Django. Enable the frontend to fetch exactly what it needs"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Nehemiah Jacob"}
+]
+maintainers = [
+    {name = "Nehemiah Jacob"}
+]
+keywords = [
+    "django",
+    "query",
+    "api",
+    "flexible",
+    "dynamic",
+    "graphql-alternative",
+    "rest",
+    "orm",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "django>=3.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-django>=4.5",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "isort>=5.12",
+    "flake8>=6.0",
+    "mypy>=1.0",
+    "django-stubs>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/n3h3m/django-flex"
+Documentation = "https://github.com/n3h3m/django-flex#readme"
+Repository = "https://github.com/n3h3m/django-flex.git"
+Issues = "https://github.com/n3h3m/django-flex/issues"
+Changelog = "https://github.com/n3h3m/django-flex/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["django_flex*"]
+
+[tool.pytest.ini_options]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_django = ["django"]
+known_first_party = ["django_flex"]
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
+[tool.mypy]
+python_version = "3.8"
+plugins = ["mypy_django_plugin.main"]
+strict = false
+warn_unused_ignores = true
+warn_redundant_casts = true
+
+[tool.django-stubs]
+django_settings_module = "django_flex.conf"
+
+[tool.coverage.run]
+source = ["django_flex"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+]

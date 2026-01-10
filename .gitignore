@@ -1,0 +1,16 @@
+### Python ###
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.env
+.venv
+
+### macOS ###
+.DS_Store
+
+### JetBrains (IDEA) ###
+.idea/
+django_flex.egg-info/
+dist/

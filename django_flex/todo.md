@@ -1,0 +1,2 @@
+- [x] ALWAYS_HTTP_200 = True # It will return always HTTP 200 OK, status_code in payload
+- [x] Everything must be deny by default, only allow what is explicitly allowed
